@@ -1,2 +1,22 @@
 <h2>Por pais</h2>
 <hr>
+
+<div class="row">
+    <div class="col">
+        <!--EL padre escucha el evento que emite el hijo y luego ejecuta el buscar contenido en el padre con el 
+        valor del evento-->
+        <app-pais-input (OnDebounce)="sugerencias( $event )" (OnEnter)="buscar( $event )"></app-pais-input>
+    </div>
+</div>
+
+<hr>
+
+<div *ngIf="isError" class="alert alert-danger">
+    No se encontro nada con el termino {{termino}}
+</div>
+
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-pais-tab-la [paises]="paises"></app-pais-tab-la>
+    </div>
+</div>
