@@ -1,1 +1,22 @@
-<p>por-capital works!</p>
+<h2>Por capital</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <!--EL padre escucha el evento que emite el hijo y luego ejecuta el buscar contenido en el padre con el 
+        valor del evento-->
+        <app-pais-input [search]="'Por capital...'" (OnDebounce)="sugerencias( $event )" (OnEnter)="buscar( $event )"></app-pais-input>
+    </div>
+</div>
+
+<hr>
+
+<div *ngIf="isError" class="alert alert-danger">
+    No se encontro nada con el termino {{termino}}
+</div>
+
+<div *ngIf="capitales.length > 0" class="row">
+    <div class="col">
+        <app-pais-tab-la [buscador]="capitales"></app-pais-tab-la>
+    </div>
+</div>

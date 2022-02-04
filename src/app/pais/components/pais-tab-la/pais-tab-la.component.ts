@@ -8,7 +8,7 @@ import { Country } from '../../interfaces/pais.interface';
 })
 export class PaisTabLAComponent implements OnInit {
 
-  @Input() paises: Country[] = [];
+  @Input() buscador: Country[] = [];
 
   constructor() { }
 
